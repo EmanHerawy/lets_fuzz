@@ -19,7 +19,6 @@ contract BasicERC20 is ERC20Capped, AccessControl {
         _mint(to, amount);
     }
 
-
     // function for user to mint token but max amount is 1000
     function mintByUser(uint256 amount) public {
         require(amount <= 1000, "Amount must be less than 1000");

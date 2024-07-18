@@ -14,7 +14,9 @@ contract BasicERC20Test is Test {
 
     function testFuzz_Mint(address to, uint256 amount) public {
         vm.assume(to != address(0));
-        vm.assume(amount <= 100000 ether);
+        //  vm.assume(amount <= 100000 ether);
+        //using bound
+        amount = bound(amount, 1, 100000 ether);
         basicERC20.mint(to, amount);
         assertEq(basicERC20.balanceOf(to), amount);
     }
